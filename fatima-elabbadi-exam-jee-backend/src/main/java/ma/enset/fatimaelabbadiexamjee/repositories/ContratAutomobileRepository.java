@@ -1,0 +1,20 @@
+package ma.enset.fatimaelabbadiexamjee.repositories;
+
+import ma.enset.fatimaelabbadiexamjee.entities.ContratAutomobile;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
+
+@Repository
+public interface ContratAutomobileRepository extends JpaRepository<ContratAutomobile, Long> {
+
+    Optional<ContratAutomobile> findByNumImmatriculation(String numImmatriculation);
+
+    boolean existsByNumImmatriculation(String numImmatriculation);
+
+    List<ContratAutomobile> findByMarqueVehiculeIgnoreCase(String marque);
+
+    List<ContratAutomobile> findByClientId(Long clientId);
+}
